@@ -12,6 +12,7 @@ import AddJobPage from './pages/AddJobPage';
 
 
 
+
 // const App = () => {
 //   return (
 //     <>
@@ -73,7 +74,10 @@ const App = () => {
     // createRoutesFromElements(<Route index element={<HomePage />} />) // element is jsx page component
   
     createRoutesFromElements(
+      // parent route use to load layout elements like navbar and footer
     <Route path='/' element={<MainLayout />} >
+
+        {/* all child Routes render with parent route  */}
         <Route index element={<HomePage />} />
         <Route path='/jobs' element={<JobsPage />} />
         {/* pass a function as props to child component */}

@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom'; // use for redirect to another url
+import { toast } from 'react-toastify';
+
 
 const AddJobPage = ({ addJobSubmit }) => {
   const [title, setTitle] = useState('');
@@ -33,6 +35,7 @@ const AddJobPage = ({ addJobSubmit }) => {
 
         addJobSubmit(newJob);   // pass newJob to parent component through addJobSubmit function. aprent component is App.jsx
         // console.log(newJob);
+        toast.success('Job Added Successfully');
 
         return navigate('/jobs');
 
