@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 import MainLayout from './layouts/MainLayout';
 import JobsPage from './pages/JobsPage';
 import NotFoundPage from './pages/NotFoundPage';
-import JobPage from './pages/JobPage';
+import JobPage, { jobLoader } from './pages/JobPage';
 
 const router = createBrowserRouter(
   // createRoutesFromElements(<Route index element={<h1>My App</h1>} />)    // root url - index
@@ -19,7 +19,11 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path='/jobs' element={<JobsPage />} />
       {/* defining dyanamin urls */}
-      <Route path='/jobs/:id' element={<JobPage />} /> 
+      {/* <Route path='/jobs/:id' element={<JobPage />} />  */}
+
+      {/* using data loaders */}
+      <Route path='/jobs/:id' element={<JobPage />} loader={jobLoader} /> 
+
       <Route path='*' element={<NotFoundPage />} />
   </Route>
 )
