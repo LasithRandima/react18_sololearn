@@ -40,7 +40,7 @@ const JobListings = ({isHome = false}) => {
         </h2>
         
 
-          {loading ? (<spinner loading={loading} />) : (
+          {loading ? (<Spinner loading={loading} />) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {jobListings.map((job) => (
