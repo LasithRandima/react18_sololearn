@@ -50,7 +50,22 @@ const App = () => {
             console.log('Error Adding Job', error);
         }
   }
-  
+
+  //delete job
+  const deleteJob = async (id) => {
+    // console.log('deleteJob', id);
+    try {
+      const response = await fetch(`/api/jobs/${id}`, {
+      method: 'DELETE',
+      });
+      return;
+
+  } catch (error) {
+      console.log('Error Adding Job', error);
+  }
+  }
+
+
   const router = createBrowserRouter(
     // createRoutesFromElements(<Route index element={<h1>My App</h1>} />)    // root url - index
     // createRoutesFromElements(<Route path='/about' index element={<h1>My App</h1>} />) //other urls paths
@@ -68,7 +83,7 @@ const App = () => {
         {/* <Route path='/jobs/:id' element={<JobPage />} />  */}
   
         {/* using data loaders */}
-        <Route path='/jobs/:id' element={<JobPage />} loader={jobLoader} /> 
+        <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} /> 
   
         <Route path='*' element={<NotFoundPage />} />
     </Route>

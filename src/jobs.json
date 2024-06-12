@@ -139,20 +139,6 @@
         "contactEmail": "k.lasithrandima@gmail.com",
         "contactPhone": "0702773363"
       }
-    },
-    {
-      "id": "2a98",
-      "title": "test2",
-      "type": "Full-Time",
-      "location": "colombo",
-      "description": "ndfn",
-      "salary": "Under $50K",
-      "company": {
-        "name": "fdhbfdbhn",
-        "description": "fdhnbfsd",
-        "contactEmail": "k.lasithrandima@gmail.com",
-        "contactPhone": "0702773363"
-      }
     }
   ]
 }

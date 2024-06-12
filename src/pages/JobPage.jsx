@@ -1,14 +1,28 @@
-import { useParams, useLoaderData, Link } from 'react-router-dom'; // used for get value of dynamic urls
+import { useParams, useLoaderData, Link, useNavigate } from 'react-router-dom'; // used for get value of dynamic urls
 import Spinner from '../components/Spinner';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaMapLocation } from 'react-icons/fa6';
 
 
-const JobPage = () => {
-    const {id} = useParams(); // use params is used to get the value of dynamic urls like ids
+const JobPage = ({ deleteJob }) => {
+
+    const navigate = useNavigate();
+    const {id} = useParams(); // useParams is used to get the value of dynamic urls like ids
     
-    const job = useLoaderData(); // useLoaderData is used to get the data from data loader
+    const job = useLoaderData(); // useLoaderData is used to get the data from data loader... Importing loader data
     console.log(job);
+
+    
+    
+    const onDeleteClick = (jobId) => {
+      const confirm = window.confirm('Are you sure you want to delete this job?');
+
+      if (!confirm) return;
+
+      deleteJob(jobId);
+
+      navigate('/jobs');
+    }
 
   return  (
     <>
@@ -90,7 +104,7 @@ const JobPage = () => {
                 className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job
                 </Link>
-              <button
+              <button onClick={ () => onDeleteClick(job.id) }
                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Job
