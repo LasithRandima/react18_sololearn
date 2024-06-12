@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const Hero = ({ 
     title = 'Become a React Dev', 
@@ -23,6 +24,11 @@ const Hero = ({
   </section>
   )
 }
+
+Hero.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+};
 
 
 export default Hero
