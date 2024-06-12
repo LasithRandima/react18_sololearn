@@ -14,7 +14,9 @@ const JobListings = ({isHome = false}) => {
     useEffect(() => {
         const fetchJobs = async () => {
           // limiting the number of jobs to 3 if it's the home page
-          const apiUrl = isHome ? 'http://localhost:3008/jobs?_limit=3' : 'http://localhost:3008/jobs';
+
+          // create a proxy in vite.config and add the api url
+          const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs';   
           try {
             const response = await fetch(apiUrl);
             const data = await response.json();
